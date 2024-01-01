@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+</head>
+
+<body>
+  <h1>Welcome, <%= user.name %>!</h1>
+
+  <% if (messages.success) { %>
+    <div style="color: green;">
+      <%= messages.success[0] %>
+    </div>
+    <% } %>
+
+      <% if (messages.error) { %>
+        <div style="color: red;">
+          <%= messages.error[0] %>
+        </div>
+        <% } %>
+
+          <a href="/profile">
+            <button>View Profile</button>
+          </a>
+
+          <a href="/add-product">
+            <button>Add Product</button>
+          </a>
+
+          <a href="/view-products">
+            <button>View Products</button>
+          </a>
+
+          <a href="/report">
+            <button>Report</button>
+          </a>
+
+          <form action="/logout" method="POST">
+            <button type="submit">Log Out</button>
+          </form>
+
+
+</body>
+
+</html>

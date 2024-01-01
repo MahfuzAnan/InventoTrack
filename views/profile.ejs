@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+
+<body>
+    <h1>User Profile</h1>
+
+    <div>
+        <img src="/uploads/<%= user.profileImage %>" alt="Profile Image" style="max-width: 150px; max-height: 150px;">
+    </div>
+
+    <div>
+        <p>Name: <%= user.name %>
+        </p>
+        <p>Email: <%= user.email %>
+        </p>
+    </div>
+
+    <a href="/edit-profile">
+        <button>Update Profile</button>
+    </a>
+
+    <a href="/update-password">
+        <button>Update Password</button>
+    </a>
+
+    <form action="/delete-account?_method=DELETE" method="POST">
+        <button type="submit" onclick="return confirm('Are you sure you want to delete your account?')">Delete Account</button>
+    </form>
+
+</body>
+
+</html>

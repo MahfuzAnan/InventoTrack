@@ -1,0 +1,74 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Single Product View</title>
+  <style>
+    .product-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .product-image {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .button-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .update-button,
+    .delete-button {
+      padding: 10px;
+      background-color: #1885d8;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="product-container">
+    <h1>Product Details</h1>
+
+    <div>
+      <img class="product-image" src="/uploads/<%= product.image %>" alt="<%= product.name %>">
+    </div>
+
+    <div>
+      <h2><%= product.name %></h2>
+      <p><strong>Description:</strong> <%= product.description %></p>
+      <p><strong>Category:</strong> <%= product.category %></p>
+      <p><strong>Quantity in Stock:</strong> <%= product.quantityInStock %></p>
+      <p><strong>Price:</strong> <%= product.price %></p>
+    </div>
+
+    <div>
+      <% if (product.video) { %>
+        <video width="400" controls>
+          <source src="/uploads/<%= product.video %>" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      <% } %>
+    </div>
+
+    <div class="button-container">
+      <a class="update-button" href="/update-product/<%= product._id %>">Update Product</a>
+      <form action="/delete-product/<%= product._id %>?_method=DELETE" method="POST">
+        <button type="submit" class="delete-button">Delete Product</button>
+      </form>
+    </div>
+  </div>
+
+  
+
+</body>
+
+</html>
